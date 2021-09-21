@@ -1,14 +1,10 @@
 import "./App.css";
-import { Logo, Nav, SearchBar } from "./components/Header";
+import { Header } from "./components/Header";
 
 function App() {
   return (
     <>
-    <header>
-      <Logo />
-      <Nav />
-      <SearchBar />
-    </header>
+    <Header/>
     </>
   );
 }
