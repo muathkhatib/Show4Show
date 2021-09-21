@@ -1,7 +1,16 @@
 import "./App.css";
+import { Logo, Nav, SearchBar } from "./components/Header";
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <>
+    <header>
+      <Logo />
+      <Nav />
+      <SearchBar />
+    </header>
+    </>
+  );
 }
 
 export default App;
