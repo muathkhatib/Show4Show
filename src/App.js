@@ -2,31 +2,40 @@ import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { getJsonList } from "iptv-list-to-json";
 import { Header } from "./components/Header";
+import {Main} from './components/Main'
 import { News, Kids, Movies, Sports, General } from "./components/Routes";
 import { Watcher } from "./context";
-import Player from './components/Main/Player'
-
-
+import './App.css'
 function App() {
   const [watcherType, setWatcherType] = useState("general");
   const [playlist, setPlaylist] = useState([]);
-  const [StreamLink, setStreamLink] = useState('http://1hdru-hls-otcnet.cdnvideo.ru/onehdmusic/tracks-v1a1/index.m3u8');
+  const [StreamLink, setStreamLink] = useState(
+    "http://1hdru-hls-otcnet.cdnvideo.ru/onehdmusic/tracks-v1a1/index.m3u8"
+  );
   useEffect(() => {
-    fetch(`https://iptv-org.github.io/iptv/categories/${watcherType}.m3u`)
-    .then((playlist) =>playlist.text()
-    .then((text) => getJsonList(text))
-    .then((data) => setPlaylist(data))
+    fetch(`https://iptv-org.github.io/iptv/categories/${watcherType}.m3u`).then(
+      (playlist) =>
+        playlist
+          .text()
+          .then((text) => getJsonList(text))
+          .then((data) => setPlaylist(data))
     );
     return () => setPlaylist([]);
   }, [watcherType]);
-console.log(StreamLink)
   return (
-    <Watcher.Provider value={{ watcherType, setWatcherType, playlist, StreamLink,setStreamLink }}>
+    <Watcher.Provider
+      value={{
+        watcherType,
+        setWatcherType,
+        playlist,
+        StreamLink,
+        setStreamLink,
+      }}
+    >
       <Router>
         <Header />
-        <Player/>
+        <Main/>
         <Switch>
-          <Route exect path="/" component={General} />
           <Route exect path="/General" component={General} />
           <Route exect path="/news" component={News} />
           <Route exect path="/movies" component={Movies} />
