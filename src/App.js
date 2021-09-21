@@ -4,9 +4,13 @@ import { getJsonList } from "iptv-list-to-json";
 import { Header } from "./components/Header";
 import { News, Kids, Movies, Sports, General } from "./components/Routes";
 import { Watcher } from "./context";
+import Player from './components/Main/Player'
+
+
 function App() {
   const [watcherType, setWatcherType] = useState("general");
   const [playlist, setPlaylist] = useState([]);
+  const [StreamLink, setStreamLink] = useState('http://1hdru-hls-otcnet.cdnvideo.ru/onehdmusic/tracks-v1a1/index.m3u8');
   useEffect(() => {
     fetch(`https://iptv-org.github.io/iptv/categories/${watcherType}.m3u`)
     .then((playlist) =>playlist.text()
@@ -15,10 +19,12 @@ function App() {
     );
     return () => setPlaylist([]);
   }, [watcherType]);
+console.log(StreamLink)
   return (
-    <Watcher.Provider value={{ watcherType, setWatcherType, playlist}}>
+    <Watcher.Provider value={{ watcherType, setWatcherType, playlist, StreamLink,setStreamLink }}>
       <Router>
         <Header />
+        <Player/>
         <Switch>
           <Route exect path="/" component={General} />
           <Route exect path="/General" component={General} />
