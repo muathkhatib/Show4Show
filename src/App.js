@@ -9,9 +9,9 @@ import './App.css'
 function App() {
   const [watcherType, setWatcherType] = useState("general");
   const [playlist, setPlaylist] = useState([]);
-  const [StreamLink, setStreamLink] = useState(
-    "http://1hdru-hls-otcnet.cdnvideo.ru/onehdmusic/tracks-v1a1/index.m3u8"
-  );
+  const [StreamLink, setStreamLink] = useState('');
+  const [filterChannels, setFilterChannels] = useState('');
+
   useEffect(() => {
     fetch(`https://iptv-org.github.io/iptv/categories/${watcherType}.m3u`).then(
       (playlist) =>
@@ -28,8 +28,11 @@ function App() {
         watcherType,
         setWatcherType,
         playlist,
+        setPlaylist,
         StreamLink,
         setStreamLink,
+        filterChannels,
+         setFilterChannels
       }}
     >
       <Router>
