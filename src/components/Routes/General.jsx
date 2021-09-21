@@ -1,10 +1,10 @@
 import {useEffect, useContext } from "react";
 import { Watcher } from "../../context";
 
-const Sports = () => {
+const General = () => {
   const { setWatcherType,playlist,setStreamLink } = useContext(Watcher);
   useEffect(() => {
-    setWatcherType('sports')
+    setWatcherType('general')
     return () => setWatcherType('')
 },[]);
 
@@ -16,10 +16,11 @@ const Sports = () => {
           <img src={elm.img} alt={elm.channel_name}/>
           <h4>{elm.channel_name}</h4>
           <span>{elm.group}</span>
+          <a href={elm.video_url}>{elm.channel_name}</a>
         </div>
       ))}
     </section>
   );
 };
 
-export default Sports;
+export default General;
