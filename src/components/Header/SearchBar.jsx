@@ -1,12 +1,17 @@
-import { useContext } from 'react';
-import {Watcher} from '../../context'
+import { useContext } from "react";
+import { Watcher } from "../../context";
 
 const SearchBar = () => {
-    const { filterChannels,setFilterChannels} = useContext(Watcher);
-    return <input type="search" placeholder='Enter name of channel'  onChange={(e)=>{
-        console.log('filterChannels',filterChannels)
-        setFilterChannels(e.target.value)
-    }}/>
-
+  const { setFilterChannels } = useContext(Watcher);
+  return (
+    <div className="header-navbar-search">
+      <input
+      className="header-navbar-search-input"
+        type="search"
+        placeholder="Enter name of channel"
+        onChange={(e) => setFilterChannels(e.target.value)}
+      />
+    </div>
+  );
 };
 export default SearchBar;
