@@ -6,7 +6,7 @@ const Kids = () => {
   useEffect(() => {
     setWatcherType('kids')
     return () => setWatcherType('')
-},[]);
+},[setWatcherType]);
 
 return null
 };

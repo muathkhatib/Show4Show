@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { Watcher } from "../../context";
 
 const SearchBar = () => {
-  const { filterChannels, setFilterChannels } = useContext(Watcher);
+  const { setFilterChannels } = useContext(Watcher);
   return (
     <div className="header-navbar-search">
       <input
