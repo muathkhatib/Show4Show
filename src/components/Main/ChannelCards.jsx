@@ -11,8 +11,8 @@ const ChannelCards = () => {
       {filtedData(playlist).map((elm) => (
         <div
           className="channel-card"
-          key={elm.channel_name}
-          onClick={(_) => {
+          key={elm.video_url}
+          onClick={() => {
             setStreamLink(elm.video_url)
             localStorage.setItem('streaming',elm.video_url)
           }}
