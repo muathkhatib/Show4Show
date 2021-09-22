@@ -6,7 +6,7 @@ const Movies = () => {
   useEffect(() => {
     setWatcherType("movies");
     return () => setWatcherType("");
-  }, []);
+  }, [setWatcherType]);
 
   return null
 };

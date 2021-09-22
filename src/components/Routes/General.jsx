@@ -6,7 +6,7 @@ const General = () => {
   useEffect(() => {
     setWatcherType('general')
     return () => setWatcherType('')
-},[]);
+},[setWatcherType]);
 
   return null
 };

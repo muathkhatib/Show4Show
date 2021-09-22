@@ -6,7 +6,7 @@ const Sports = () => {
   useEffect(() => {
     setWatcherType('sports')
     return () => setWatcherType('')
-},[]);
+},[setWatcherType]);
   return null
 };
 

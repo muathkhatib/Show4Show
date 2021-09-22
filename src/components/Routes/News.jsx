@@ -6,7 +6,7 @@ const News = () => {
   useEffect(() => {
     setWatcherType('news')
     return () => setWatcherType('')
-},[]);
+},[setWatcherType]);
 
 return null
 };
