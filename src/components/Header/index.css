@@ -1,3 +1,71 @@
-h1{
-    color: red
+:root{
+    --title-color:  #242424;
+    --bg-color:  #2B2B2B;
+    --sub-bg-color:  #696863;
+    --white-color:  #CFCED3;
+}
+
+.header{
+    padding:0 1%;
+    background: var(--bg-color);
+    width: 98%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.header-navbar-logo{
+    width: 15%;
+    height: 100%;
+    color: var(--white-color);
+}
+.header-navbar-nav{
+    width: 35%;
+    height: 100%;
+    
+}
+.header-navbar-search{
+    width: 30%;
+    
+}
+.header-navbar-search-input{
+padding: 0 0.5rem;
+width: 97%;
+height: 40%;
+
+}
+.header-navbar-search-input::placeholder{
+    color: var(--bg-color);
+}
+.header-navbar-logo,
+.header-navbar-nav,
+.header-navbar-search{
+    height: 100%;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.header-navbar-nav-ul{
+    width: 100%;
+    height: 35%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.header-navbar-nav-ul-li{
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+.header-navbar-nav-ul-li-a{
+    width: 100%;
+    height: 100%;
+    padding:1rem;
+    text-align: center;
+    text-decoration: none;
+    color: var(--white-color);
+}
+.header-navbar-nav-ul-li-a:hover{
+    cursor: pointer;
+    background: var(--sub-bg-color);
 }

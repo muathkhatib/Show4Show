@@ -4,7 +4,7 @@ import SearchBar from "./SearchBar";
 
 const Header = () => (
     
-  <header>
+  <header className="header">
     <Logo />
     <Nav />
     <SearchBar />

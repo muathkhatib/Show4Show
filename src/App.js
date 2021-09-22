@@ -5,7 +5,6 @@ import { Header } from "./components/Header";
 import {Main} from './components/Main'
 import { News, Kids, Movies, Sports, General } from "./components/Routes";
 import { Watcher } from "./context";
-import './App.css'
 function App() {
   const [watcherType, setWatcherType] = useState("general");
   const [playlist, setPlaylist] = useState([]);

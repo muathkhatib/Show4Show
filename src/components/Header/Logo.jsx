@@ -1,4 +1,6 @@
 const Logo = () => (
-    <h1>Logo Component</h1>
+  <div className="header-navbar-logo">
+    <h1>Show4Show</h1>
+  </div>
 );
-export default Logo
+export default Logo;
