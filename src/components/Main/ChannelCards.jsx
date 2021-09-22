@@ -12,7 +12,10 @@ const ChannelCards = () => {
         <div
           className="channel-card"
           key={elm.channel_name}
-          onClick={(_) => setStreamLink(elm.video_url)}
+          onClick={(_) => {
+            setStreamLink(elm.video_url)
+            localStorage.setItem('streaming',elm.video_url)
+          }}
         >
           <div className="channel-card-image-img">
             <img
