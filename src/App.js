@@ -2,14 +2,14 @@ import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { getJsonList } from "iptv-list-to-json";
 import { Header } from "./components/Header";
-import {Main} from './components/Main'
+import { Main } from "./components/Main";
 import { News, Kids, Movies, Sports, General } from "./components/Routes";
 import { Watcher } from "./context";
 function App() {
   const [watcherType, setWatcherType] = useState("general");
   const [playlist, setPlaylist] = useState([]);
-  const [StreamLink, setStreamLink] = useState('');
-  const [filterChannels, setFilterChannels] = useState('');
+  const [StreamLink, setStreamLink] = useState("");
+  const [filterChannels, setFilterChannels] = useState("");
 
   useEffect(() => {
     fetch(`https://iptv-org.github.io/iptv/categories/${watcherType}.m3u`).then(
@@ -31,12 +31,12 @@ function App() {
         StreamLink,
         setStreamLink,
         filterChannels,
-         setFilterChannels
+        setFilterChannels,
       }}
     >
       <Router>
         <Header />
-        <Main/>
+        <Main />
         <Switch>
           <Route exect path="/General" component={General} />
           <Route exect path="/news" component={News} />
