@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { getJsonList } from "iptv-list-to-json";
 import { Header } from "./components/Header";
-import { Main } from "./components/Main";
+import { Main,Loading } from "./components/Main";
 import { News, Kids, Movies, Sports, General } from "./components/Routes";
 import { Watcher } from "./context";
 function App() {
@@ -10,18 +10,30 @@ function App() {
   const [playlist, setPlaylist] = useState([]);
   const [StreamLink, setStreamLink] = useState("");
   const [filterChannels, setFilterChannels] = useState("");
+  const [favoriteChannels, setFavoriteChannels] = useState([]);
+  const [loading,setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true)
     fetch(`https://iptv-org.github.io/iptv/categories/${watcherType}.m3u`).then(
       (playlist) =>
         playlist
           .text()
           .then((text) => getJsonList(text))
           .then((data) => setPlaylist(data))
+          .then((data) => {
+            setLoading(false)
+            return data
+          })
     );
     return () => setPlaylist([]);
   }, [watcherType]);
+
+  useEffect(() =>localStorage.setItem("fav1", JSON.stringify(favoriteChannels)),
+    [favoriteChannels]
+  );
   return (
+    <>
     <Watcher.Provider
       value={{
         watcherType,
@@ -32,20 +44,27 @@ function App() {
         setStreamLink,
         filterChannels,
         setFilterChannels,
+        favoriteChannels,
+        setFavoriteChannels,
       }}
     >
+       
       <Router>
         <Header />
-        <Main />
+        {loading ? <Loading/> :  <Main /> }
         <Switch>
+
           <Route exect path="/General" component={General} />
           <Route exect path="/news" component={News} />
           <Route exect path="/movies" component={Movies} />
           <Route exect path="/sport" component={Sports} />
           <Route exect path="/kids" component={Kids} />
         </Switch>
+
       </Router>
+      
     </Watcher.Provider>
+  </>
   );
 }
 

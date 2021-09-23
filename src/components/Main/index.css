@@ -33,6 +33,14 @@
 .channel-card {
   height: 30%;
   margin-bottom: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.channel-card:hover{
+  cursor: pointer;
+  background: rgb(231, 231, 231);
 }
 .channel-card-image-img {
   height: 50%;
@@ -42,4 +50,17 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+
+.channel-card-description{
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.channel-card-title{
+  color: var(--title-color);
+}
+.channel-card-favorite{
+  color: var(--bg-color)
 }
