@@ -21,7 +21,7 @@ const CustomSection = () => {
           className="custom-List-form-input"
           type="url"
           placeholder="Link of playlist"
-          value="https://muath-khatib.github.io/IPTV-Hosting-Channels/Musics/playlist.m3u"
+          value="https://muath-khatib.github.io/IPTV-Hosting-Channels/All-channels/playlist.m3u"
           onChange={(e) => setInputLink(e.target.value)}
         />
 
