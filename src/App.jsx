@@ -34,14 +34,8 @@ function App() {
       .then((data) =>
         data
           .text()
-          .then((text) => {
-            console.log("text", text);
-            return getJsonList(text);
-          })
-          .then((converted) => {
-            console.log("converted", converted);
-            setPlaylist(converted);
-          })
+          .then((text) => getJsonList(text))
+          .then((converted) => setPlaylist(converted))
           .then(() => setLoading(false))
       )
       .catch(() => {
