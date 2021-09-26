@@ -2,11 +2,13 @@ import {useEffect, useContext } from "react";
 import { Watcher } from "../../context";
 
 const Kids = () => {
-  const { setWatcherType } = useContext(Watcher);
+  const { setPlaylistLink } = useContext(Watcher);
   useEffect(() => {
-    setWatcherType('kids')
-    return () => setWatcherType('')
-},[setWatcherType]);
+    console.log('kids')
+    setPlaylistLink('https://iptv-org.github.io/iptv/categories/kids.m3u')
+    // return () => setPlaylistLink('')
+    // eslint-disable-next-line
+},[]);
 
 return null
 };
